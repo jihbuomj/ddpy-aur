@@ -20,7 +20,7 @@ md5sums=('SKIP' '7c74326f99950a37a6c765e3fca92fab')
 
 prepare() {
 	cd ${_pkgname}
-	dephell deps convert --level DEBUG --from pyproject.toml --to setup.py
+	dephell deps convert --level DEBUG
 }
 
 build() {
@@ -29,9 +29,9 @@ build() {
 }
 
 package() {
-	cd ${_pkgname}
-	python setup.py install --root=${pkgdir} --optimize=1 --skip-build
-
 	install -m755 -d ${pkgdir}/usr/lib/systemd/system
 	install -m644 ddpy.service ${pkgdir}/usr/lib/systemd/system
+
+	cd ${_pkgname}
+	python setup.py install --root=${pkgdir} --optimize=1 --skip-build
 }
