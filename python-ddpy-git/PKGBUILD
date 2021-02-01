@@ -15,9 +15,8 @@ makedepends=('git' 'python-setuptools' 'python-dephell')
 provides=('ddpy' 'python-ddpy')
 conflicts=('ddpy' 'python-ddpy')
 replaces=('ddpy')
-source=("${_pkgname}"::"git+https://github.com/jihbuomj/${_pkgname}.git"
-		"ddpy.service")
-md5sums=('SKIP')
+source=("${_pkgname}"::"git+https://github.com/jihbuomj/${_pkgname}.git" 'ddpy.service')
+md5sums=('SKIP' '7c74326f99950a37a6c765e3fca92fab')
 
 prepare() {
 	cd ${_pkgname}
